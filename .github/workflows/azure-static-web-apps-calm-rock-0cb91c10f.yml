@@ -28,7 +28,11 @@ jobs:
       - run: pwd
       - run: cp dist/*.* ${{github.workspace}}
       - run: ls -la
-        
+      - uses: actions/upload-artifact@master
+        with:
+          name: my-artifact
+          path: dist
+    
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
